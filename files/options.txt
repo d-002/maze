@@ -1,0 +1,3 @@
+move_keys = zqsd
+fov = 90
+render_distance = 20
