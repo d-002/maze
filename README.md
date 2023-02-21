@@ -35,9 +35,11 @@ It is also very unlikely that long straight paths would generate, which would be
 I recommend to only change this setting if you want to lower it, for example if you are playing on a potato.
 
 ### Defaults
-- move_keys: wasd
-- fov: 70
-- render_distance: 20
+- **move_keys**: wasd
+- **fov**: 70
+- **render_distance**: 20
+
+You can also delete the `options.txt` file to revert everything back to default.
 
 ## Sources
 
