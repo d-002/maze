@@ -1,3 +1,4 @@
+import os
 import pygame
 import numpy as np
 
@@ -53,7 +54,7 @@ def init3d():
     # projection mode
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()
-    gluPerspective(FOV + 10*player.sprint, W/H, 0.1, render_distance)
+    gluPerspective(FOV + 10*player.sprint, W/H, 0.01, render_distance)
     glMatrixMode(GL_MODELVIEW)
 
     # depth test (draw nearest surfaces on top)
@@ -91,6 +92,29 @@ def init2d():
 
     # disable depth test (incompatible with 2d blending)
     glDisable(GL_DEPTH_TEST)
+
+def load_options():
+    global options
+    # default values
+    options = {'move_keys': 'wasd', 'fov': 70, 'render_distance': 20}
+
+    try:
+        # read options file
+        with open('files/options.txt') as f:
+            for line in f.read().split('\n'):
+                name, value = line.split('=')
+                options[name.strip()] = value.strip()
+
+        # format options
+        options['fov'] = min(max(int(options['fov']), 30), 120)
+        options['render_distance'] = int(options['render_distance'])
+    except Exception as e:
+        print('Error reading options.txt:')
+        print(type(e), e)
+
+    # add missing values
+    with open('files/options.txt', 'w') as f:
+        f.write('\n'.join(['%s = %s' %(key, value) for key, value in options.items()]))
 
 def init_tex():
     global textures
@@ -441,7 +465,10 @@ def render2d():
 
     glColor(base_color)
 
-fullscreen = True
+fullscreen = False
+
+load_options()
+FOV, render_distance = options['fov'], options['render_distance']
 
 pygame.init()
 if fullscreen:
@@ -463,7 +490,6 @@ pygame.mixer.music.set_volume(0.5)
 lifton, liftoff, door, bullet = [pygame.mixer.Sound('files/sfx/%s.wav' %name) for name in ['lifton', 'liftoff', 'door', 'bullet']]
 
 time_passed = 0
-FOV, render_distance = 60, 100
 FPS = 120
 level = 0
 lab_display = None
@@ -486,7 +512,7 @@ player = Player()
 entities = [player]
 
 new_level()
-send_vars(W, H, ticks, player, particles, bullet)
+send_vars(W, H, ticks, player, particles, bullet, options)
 lift(True)
 
 while True:

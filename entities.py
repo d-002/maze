@@ -13,8 +13,10 @@ def send_tex(tex): # at the very start
     textures = tex
 
 def send_vars(*args): # at the start
-    global W, H, ticks, player, particles, bullet
-    W, H, ticks, player, particles, bullet = args
+    global W, H, ticks, player, particles, bullet, move_keys, fov
+    W, H, ticks, player, particles, bullet, options = args
+    fov = options['fov']
+    move_keys = [ord(char.lower()) for char in options['move_keys']]
 
 def send_lists(*args): # when changing level
     global lab, entities
@@ -170,15 +172,15 @@ class Player(Entity):
         if pressed[K_LCTRL]: # sprint
             self.sprint = True
 
-        if pressed[K_z]: # forwards (walks faster)
+        if pressed[move_keys[0]]: # forwards (walks faster)
             movement.z -= 1
         else: # reset sprint
             self.sprint = False
-        if pressed[K_q]: # left
+        if pressed[move_keys[1]]: # left
             movement.x -= 0.8
-        if pressed[K_s]: # backwards
+        if pressed[move_keys[2]]: # backwards
             movement.z += 0.8
-        if pressed[K_d]: # right
+        if pressed[move_keys[3]]: # right
             movement.x += 0.8
 
         if pressed[K_LSHIFT]: # sneak
