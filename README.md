@@ -1,6 +1,6 @@
 # maze
 
-<img src="https://user-images.githubusercontent.com/69427207/220354305-eec77b99-6ca9-466c-9d82-48938836f4de.png" alt="Logo" style="background: radial-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0))">
+!(Logo)[https://user-images.githubusercontent.com/69427207/220354305-eec77b99-6ca9-466c-9d82-48938836f4de.png]
 
 Doom-like maze with randomly generated levels. School project.
 
@@ -23,7 +23,7 @@ You can edit the file `files/options.txt` to change setting like the keys used t
 
 The render distance doesn't have to be set higher, as the fog will hide most of the maze. It is also very unlikely that you will get long straight paths, which are the only reason why you would need high rander distance. I recommend to only change this to lower it if you are playing on a potato.
 
-Defaults:
+### Defaults
 - move_keys: wasd
 - fov: 70
 - render_distance: 20
