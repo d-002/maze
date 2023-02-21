@@ -4,6 +4,9 @@
 
 Doom-like maze with randomly generated levels. School project.
 
+## DISCLAIMER
+For now, you need to install Python to run the game. I'm however currently working on converting the game to an executable. This should be all done in a few days, so maybe come back later it you want to.
+
 ## Trailer
 https://youtu.be/k_p-beKNRV4
 
