@@ -5,7 +5,7 @@
 Doom-like maze with randomly generated levels. School project.
 
 ## Trailer
-https://www.youtu.be/k_p-beKNRV4
+https://youtu.be/k_p-beKNRV4
 
 ## Installing
 
