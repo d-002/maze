@@ -1,10 +1,9 @@
-| ![Logo](https://user-images.githubusercontent.com/69427207/220354305-eec77b99-6ca9-466c-9d82-48938836f4de.png") | # maze |
+![Logo](https://user-images.githubusercontent.com/69427207/220354305-eec77b99-6ca9-466c-9d82-48938836f4de.png")
 
-<div style="float:left">
-<img src="https://user-images.githubusercontent.com/69427207/220354305-eec77b99-6ca9-466c-9d82-48938836f4de.png">
+<div style="float:right">
+  <h1>maze</h1>
+  <p>Doom-like maze with randomly generated levels. School project.</p>
 </div>
-
-Doom-like maze with randomly generated levels. School project.
 
 ## DISCLAIMER
 If you want to download the game as an executable, **it is very likely that your antivirus software will see the game as a virus**.  
