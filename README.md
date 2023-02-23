@@ -5,18 +5,37 @@
 Doom-like maze with randomly generated levels. School project.
 
 ## DISCLAIMER
-For now, you need to install Python to run the game. I'm however currently working on converting the game to an executable. This should be all done in a few days, so maybe come back later it you want to.
+If you want to download the game as an executable, **it is very likely that your antivirus will see the game as a virus**.  
+This is because I used a Python library to convert the file, and because I'm not a huge recognised firm that has money to spend in certificates and all that kind of stuff.
+
+This game is **not** a virus, so if you want to play it, maybe disable your antivirus software when downloading it.
+
+You can also consider **downloading the game as Python files** to avoid this issue completely.
 
 ## Trailer
 https://youtu.be/k_p-beKNRV4
 
-## Installing
+## Downloading
 
-You will need Python 3.x or newer, and a few Python modules available on `pip`. To install them, navigate to the game folder with a command prompt and execute: `pip install requirements.txt` (Windows: `py -m pip install requirements.txt`).
+<details>
+  <summary>Download as Python files (`.py[w]`)</summary>
+  
+  Download all the files above.
+  
+  You will need Python 3.x or newer, and a few Python modules available on `pip`. To install them, navigate to the game folder with a command prompt and execute: `pip install requirements.txt` (Windows: `py -m pip install requirements.txt`).
+  
+  The main file you will need to execute to play the game is `main.pyw`.
+  
+  Make sure you download all the other required files (images, sound effects...), otherwise the game surely won't be able to run properly.
+</details>
 
-The main file you will need to execute to play the game is `main.pyw`.
-
-Make sure you download all the other required files (images, sound effects...), otherwise the game surely won't be able to run properly.
+<details>
+  <summary>Download binaries in `.exe`</summary>
+  
+  Use the "releases" tab and download the latest version.
+  
+  Make sure you read the disclaimer above.
+</details>
 
 ## Overview
 This project is a Python game where you try to find the exit gate to a maze and go to the next level, where a bigger maze will be waiting for you. Yet beware, evil monsters will try and stop you from doing so!
