@@ -18,7 +18,7 @@ https://youtu.be/k_p-beKNRV4
 ## Download
 
 <details>
-  <summary>Download as Python files</summary>
+  <summary><h3>Download as Python files</h3></summary>
   
   Download all the files above.  
   Make sure you download all the required files (images, sound effects...), otherwise the game won't be able to run properly.
@@ -29,7 +29,7 @@ https://youtu.be/k_p-beKNRV4
 </details>
 
 <details>
-  <summary>Download .exe binaries</summary>
+  <summary><h3>Download .exe binaries</h3></summary>
   
   Use the "releases" tab and download the latest version.
   
