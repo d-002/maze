@@ -1,4 +1,4 @@
-![Logo](https://user-images.githubusercontent.com/69427207/220354305-eec77b99-6ca9-466c-9d82-48938836f4de.png">){:style="float: left; margin-right: 20px;"}
+![Logo](https://user-images.githubusercontent.com/69427207/220354305-eec77b99-6ca9-466c-9d82-48938836f4de.png">){.style="float: left; margin-right: 20px;"}
 
 # maze
 Doom-like maze with randomly generated levels. School project.
