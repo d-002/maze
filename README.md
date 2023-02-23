@@ -5,7 +5,7 @@
 Doom-like maze with randomly generated levels. School project.
 
 ## DISCLAIMER
-If you want to download the game as an executable, **it is very likely that your antivirus will see the game as a virus**.  
+If you want to download the game as an executable, **it is very likely that your antivirus software will see the game as a virus**.  
 This is because I used a Python library to convert the file, and because I'm not a huge recognised firm that has money to spend in certificates and all that kind of stuff.
 
 This game is **not** a virus, so if you want to play it, maybe disable your antivirus software when downloading it.
@@ -18,19 +18,18 @@ https://youtu.be/k_p-beKNRV4
 ## Downloading
 
 <details>
-  <summary>Download as Python files (`.py[w]`)</summary>
+  <summary>### Downloading as Python files</summary>
   
-  Download all the files above.
+  Download all the files above.  
+  Make sure you download all the required files (images, sound effects...), otherwise the game won't be able to run properly.
   
   You will need Python 3.x or newer, and a few Python modules available on `pip`. To install them, navigate to the game folder with a command prompt and execute: `pip install requirements.txt` (Windows: `py -m pip install requirements.txt`).
   
   The main file you will need to execute to play the game is `main.pyw`.
-  
-  Make sure you download all the other required files (images, sound effects...), otherwise the game surely won't be able to run properly.
 </details>
 
 <details>
-  <summary>Download binaries in `.exe`</summary>
+  <summary>### Downloading .exe binaries</summary>
   
   Use the "releases" tab and download the latest version.
   
