@@ -15,10 +15,12 @@ You can also consider **downloading the game as Python files** to avoid this iss
 ## Trailer
 https://youtu.be/k_p-beKNRV4
 
-## Downloading
+## Download
 
 <details>
-  <summary>### Downloading as Python files</summary>
+  <summary>
+    ### Download as Python files
+  </summary>
   
   Download all the files above.  
   Make sure you download all the required files (images, sound effects...), otherwise the game won't be able to run properly.
@@ -29,7 +31,7 @@ https://youtu.be/k_p-beKNRV4
 </details>
 
 <details>
-  <summary>### Downloading .exe binaries</summary>
+  <summary>Download .exe binaries</summary>
   
   Use the "releases" tab and download the latest version.
   
