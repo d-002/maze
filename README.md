@@ -1,6 +1,7 @@
+<img width=500 aligh="left" src="https://user-images.githubusercontent.com/69427207/220354305-eec77b99-6ca9-466c-9d82-48938836f4de.png">
+
 # maze
 
-<img width=500 aligh="left" src="https://user-images.githubusercontent.com/69427207/220354305-eec77b99-6ca9-466c-9d82-48938836f4de.png">
 Doom-like maze with randomly generated levels. School project.
 
 ## DISCLAIMER
