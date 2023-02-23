@@ -18,9 +18,7 @@ https://youtu.be/k_p-beKNRV4
 ## Download
 
 <details>
-  <summary>
-    ### Download as Python files
-  </summary>
+  <summary>Download as Python files</summary>
   
   Download all the files above.  
   Make sure you download all the required files (images, sound effects...), otherwise the game won't be able to run properly.
