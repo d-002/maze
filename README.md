@@ -13,7 +13,7 @@ This game is **not** a virus, so if you want to play it, maybe disable your anti
 You can also consider **downloading the game as Python files** to avoid this issue completely.
 
 ## Trailer
-https://youtu.be/k_p-beKNRV4
+![https://img.youtube.com/vi/k_p-beKNRV4/0.jpg](https://youtu.be/k_p-beKNRV4)
 
 ## Download
 
