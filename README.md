@@ -33,7 +33,7 @@ https://youtu.be/k_p-beKNRV4
   
   Use the "releases" tab and download the latest version.
   
-  Make sure you read the disclaimer above.
+  Make sure you read the [disclaimer](#DISCLAIMER) above.
 </details>
 
 ## Overview
