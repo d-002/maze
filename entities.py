@@ -19,8 +19,8 @@ def send_vars(*args): # at the start
     move_keys = [ord(char.lower()) for char in options['move_keys']]
 
 def send_lists(*args): # when changing level
-    global lab, entities
-    lab, entities = args
+    global maze, entities
+    maze, entities = args
 
 class FloatRect:
     # pygame Rect doesn't support float coordinates
@@ -52,13 +52,13 @@ class Entity:
         # also set up the hitbox: center at the bottom
         w, h = self.size
         self.hitbox = FloatRect(self.pos.x - w/2, self.pos.z - w/2, w, w)
-        m, n = len(lab[0]), len(lab)
+        m, n = len(maze[0]), len(maze)
 
         touch = [] # find out which blocks are touched
         X, Z = floor(self.hitbox.left), floor(self.hitbox.top)
         for x in range(X, X+2):
             for z in range(Z, Z+2):
-                if 0 <= x < m and 0 <= z < n and lab[z][x] > 0:
+                if 0 <= x < m and 0 <= z < n and maze[z][x] > 0:
                     touch.append(FloatRect(x, z, 1, 1))
 
         # check if out of bounds
@@ -133,10 +133,9 @@ class Player(Entity):
         self.sprint = False
 
         self.hp = self.max_hp = 100
+        self.last_hit = 0 # time of last hit taken
         self.dying = 0 # time of death start
         self.died = False
-
-        self.level_end = False
 
         self.sounds = {name: pygame.mixer.Sound('files/sfx/%s.wav' %name) for name in ['hit', 'death']}
         self.sounds['shot'] = pygame.mixer.Sound('files/sfx/shotgun.wav')
@@ -163,8 +162,8 @@ class Player(Entity):
                     self.rot_offset.x = pi/20
 
                     self.last_shot = ticks()
-                elif event.button == 3 and (floor(self.pos.x), floor(self.pos.z)) == (len(lab[0])-1, len(lab)-2):
-                    self.level_end = True
+                elif event.button == 3 and (floor(self.pos.x), floor(self.pos.z)) == (len(maze[0])-2, len(maze)-2):
+                    pygame.event.post(pygame.event.Event(USEREVENT)) # tell that the exit door has been opened
 
         # movement
         movement = Vector3() # this frame
@@ -195,7 +194,9 @@ class Player(Entity):
         global hud_surf
 
         if self.dying:
-            if ticks()-self.dying >= 1000:
+            progress = (ticks()-self.dying)/2000
+
+            if progress >= 1:
                 # killed: end of animation
                 self.pos = Vector3(0.5, 0, 1.5)
                 self.hp = self.max_hp
@@ -204,10 +205,13 @@ class Player(Entity):
                 self.dying = 0
                 return
 
-            self.rot_offset.x = (self.dying-ticks())/3000*pi
-            self.size[1] = self.base_height * (1500+self.dying-ticks()) / 1500
+            # make the progress more interesting
+            progress = sin(pi*progress/2) + sin(8*pi*progress)/20
+
+            self.rot_offset.x = (-pi/2 - self.rot.x) * progress
+            self.size[1] = self.base_height * (1-progress)
             movement = Vector3()
-        else:
+        else: # only allow to pan / move when alive
             movement = self.move(events, time_passed)
 
         # add rotated movement to self.pos
@@ -220,6 +224,9 @@ class Player(Entity):
         self.movement *= 0.85**(100*time_passed)
         self.rot_offset *= 0.9**(100*time_passed)
 
+        # regen
+        self.hp = min(self.hp + time_passed * (0.1 + (ticks()-self.last_hit) / 7000), self.max_hp)
+
         self.cam = (self.pos+self.pos_offset)+Vector3(0, self.size[1], 0)
         self.cam_rot = self.rot+self.rot_offset
 
@@ -227,6 +234,7 @@ class Player(Entity):
         if self.hit and not self.dying:
             self.hp -= self.hit
             self.hit = 0
+            self.last_hit = ticks()
 
             if self.hp <= 0:
                 self.hp = 0
@@ -263,7 +271,7 @@ class Monster(Entity):
 
     def accessible(self, pos):
         # break down the movement into steps and see if they fall in a block
-        m, n = len(lab[0]), len(lab)
+        m, n = len(maze[0]), len(maze)
         start = Vector2(self.pos.x, self.pos.z)
         move = Vector2(pos.x, pos.z)-start
 
@@ -273,7 +281,7 @@ class Monster(Entity):
         for i in range(10):
             pos = start + move*i/10
             x, y = floor(pos.x), floor(pos.y)
-            if 0 <= x < m and 0 <= y < n and lab[y][x] > 0:
+            if 0 <= x < m and 0 <= y < n and maze[y][x] > 0:
                 return False
         return True
 
@@ -311,10 +319,12 @@ class Monster(Entity):
 
             elif self.type_ >= 5: # dying
                 if self.type_ == 5:
+                    self.channels[1].stop()
                     self.channels[1].play(self.sounds['death'])
                 if self.type_ == 13:
                     entities.remove(self)
-                self.type_ += 1
+                else:
+                    self.type_ += 1
                 self.texupdate = ticks()+50
                 return # don't do anything when dying
 
@@ -360,7 +370,7 @@ class Monster(Entity):
 
             if self.last_see is None: # wander around
                 if self.walk_goal is None: # set a new goal
-                    m, n = len(lab[0]), len(lab)
+                    m, n = len(maze[0]), len(maze)
                     ok = [] # where it could go
                     X, Z = floor(self.pos.x), floor(self.pos.z)
 
@@ -368,9 +378,9 @@ class Monster(Entity):
                         for z in range(Z-2, Z+3):
                             if (x, z) == (X, Z):
                                 continue
-                            if 0 <= x < m and 0 <= z < n: # stay in the labyrinth
+                            if 0 <= x < m and 0 <= z < n: # stay in the maze
                                 pos = Vector3(x+0.5, 0, z+0.5)
-                                if lab[z][x] <= 0 and self.accessible(pos): # if air and accessible
+                                if maze[z][x] <= 0 and self.accessible(pos): # if air and accessible
                                     ok.append(pos)
 
                     if len(ok):
@@ -392,7 +402,8 @@ class Monster(Entity):
                     self.movement.y = 0
 
         self.pos += self.movement*time_passed*self.speed
-        if type(self.collide()) != bool: # entity is blocking it
+        collide = self.collide()
+        if type(collide) != bool and collide != player: # entity is blocking it
             self.last_see = None # stop chasing
 
     def render(self):
