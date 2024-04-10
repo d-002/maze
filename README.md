@@ -5,14 +5,15 @@
   </div>
   <img style="width: 50%" alt="Logo" src="https://user-images.githubusercontent.com/69427207/220354305-eec77b99-6ca9-466c-9d82-48938836f4de.png">
 </div>
+<br>
 
-## DISCLAIMER
-If you want to download the game as an executable, **it is very likely that your antivirus software will see the game as a virus**.  
-This is because I used a Python library to convert the file, and because I'm not a huge recognised firm that has money to spend in certificates and all that kind of stuff.
-
-This game is **not** a virus, so if you want to play it, maybe disable your antivirus software when downloading it.
-
-You can also consider **downloading the game as Python files** to avoid this issue completely.
+> [!IMPORTANT]\
+> If you want to download the game as an executable, ***it is very likely that your antivirus software will flag the game as a virus***.\
+> This is because I used a Python library to convert the file, and because I'm not a huge recognised firm that has money to spend in certificates and all that kind of stuff.
+> 
+> This game is obviously **not** a virus, so if you want to play it, maybe disable your antivirus software when downloading it.
+> 
+> You can also consider **downloading the game as Python files** to avoid this issue completely.
 
 ## Trailer
 [![Thumbnail](https://img.youtube.com/vi/k_p-beKNRV4/0.jpg)](https://youtu.be/k_p-beKNRV4)
