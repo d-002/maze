@@ -9,19 +9,18 @@
 
 > [!IMPORTANT]\
 > If you want to download the game as an executable, ***it is very likely that your antivirus software will flag the game as a virus***.\
-> This is because I used a Python library to convert the file, and because I'm not a huge recognised firm that has money to spend in certificates and all that kind of stuff.
+> If you want to play the game, you might have to disable your antivirus software when downloading it.
 > 
-> This game is obviously **not** a virus, so if you want to play it, maybe disable your antivirus software when downloading it.
-> 
-> You can also consider **downloading the game as Python files** to avoid this issue completely.
+> You can also consider **downloading the source code directly** to completely avoid this issue.
 
-## Trailer
+<div align="center"><h2>Trailer</h2></div>
+
 [![Thumbnail](https://img.youtube.com/vi/k_p-beKNRV4/0.jpg)](https://youtu.be/k_p-beKNRV4)
 
 ## Download
 
 <details>
-  <summary><h3>Download as Python files</h3></summary>
+  <summary><h3>Download the source code</h3></summary>
   
   Download all the files above.  
   Make sure you download all the required files (images, sound effects...), otherwise the game won't be able to run properly.
@@ -32,7 +31,7 @@
 </details>
 
 <details>
-  <summary><h3>Download .exe binaries</h3></summary>
+  <summary><h3>Download .exe binaries (for Windows)</h3></summary>
   
   Use the "releases" tab and download the latest version.
   
@@ -68,5 +67,5 @@ You can also delete the `options.txt` file to revert everything back to default.
 ## Sources
 
 **Textures**: [doomworld.com](https://www.doomworld.com/forum/topic/99021-doom-neural-upscale-2x-v-10)  
-**Music**: myself (youtube video will be available soon)  
+**Music**: [Tunnel Vision](https://youtu.be/Q6yqbGicwUo), by me  
 **SFX**: edited from [pixabay.com](https://pixabay.com)  
